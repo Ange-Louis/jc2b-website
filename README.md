@@ -3,7 +3,7 @@
 Ce projet est le site officiel de la **Junior Conference of Computational Biology (JC2B)**, un événement organisé par et pour les étudiants, doctorants et chercheurs en bioinformatique. Le site propose des informations sur la conférence (programme, intervenants, partenaires), des pages légales, et une section dédiée aux mentions légales.
 
 ## Structure du projet
-"""
+```
 jc2b-website
 ├── assets
 │   ├── css
@@ -23,7 +23,7 @@ jc2b-website
 ├── scripts
 │   └── generate_content.py  # Script Python pour générer du contenu dynamique
 └── README.md                 # Documentation du projet
-"""
+```
 
 ## Installation
 1. Clonez le dépôt ou téléchargez les fichiers du projet.
