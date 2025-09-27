@@ -40,7 +40,7 @@ Les contributions sont les bienvenues ! Pour proposer des modifications :
 3. Soumettez une Pull Request.
 
 ---
-### 🔧 Branches en cours de développement
+### Branches en cours de développement
 
 | Branche                                  | Description                                                                 | Statut          | Comment contribuer ?                                                                 |
 |------------------------------------------|-----------------------------------------------------------------------------|-----------------|-------------------------------------------------------------------------------------|
