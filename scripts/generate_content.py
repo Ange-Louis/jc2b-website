@@ -17,7 +17,7 @@ def generate_header(lang="en"):
     <header class="site-header">
         <!-- Bannière EN DEHORS du conteneur -->
         <div class="header-banner">
-            <img src="/assets/images/jc2b_logo2.png" alt="JC2B 2025 - Junior Conference of Computational Biology">
+            <img src="/assets/images/jc2b_logo2.png" alt="JC2B 2025 - Junior Conference on Computational Biology">
         </div>
         <!-- Le reste du header (navbar, etc.) reste dans le conteneur -->
         <div class="container">
@@ -99,6 +99,68 @@ def generate_navbar(lang="en"):
     </div>
     """
 
+def generate_countdown_section(lang="fr"):
+    if lang == "en":
+        return """
+        <script src="../assets/js/main.js"></script>
+        <section id="countdown" class="countdown">
+            <div class="countdown-content">
+                <p>
+                    The countdown has begun! The <strong>Junior Conference 
+                    on Computational Biology 2025 (JC2B 2025)</strong> will take place in:
+                </p>
+            </div>
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">DAYS</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">HOURS</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="mins">00</div>
+                    <div class="countdown-label">MINS</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="secs">00</div>
+                    <div class="countdown-label">SECS</div>
+                </div>
+            </div>
+        </section>
+        """
+    else:
+        return """
+        <script src="../assets/js/main.js"></script>
+        <section id="countdown" class="countdown">
+            <div class="countdown-content">
+                <p> 
+                    Le compte à rebours est lancé ! La <strong>Junior Conference 
+                    on Computational Biology 2025 (JC2B 2025)</strong> a lieu dans :
+                </p>
+            </div>
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">JOURS</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">HEURES</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="mins">00</div>
+                    <div class="countdown-label">MINS</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="secs">00</div>
+                    <div class="countdown-label">SECS</div>
+                </div>
+            </div>
+        </section>
+        """
+
 def generate_home_section(lang="fr"):
     if lang == "en":
         return """
@@ -107,7 +169,7 @@ def generate_home_section(lang="fr"):
                 <h2>Home</h2>
                 <div class="home-content">
                     <p style="margin-bottom: 20px;">
-                        The <strong>Junior Conference of Computational Biology (JC2B 2025)</strong> is an event
+                        The <strong>Junior Conference on Computational Biology (JC2B 2025)</strong> is an event
                         organized by students of the <strong>AMI2B Master's program in Orsay</strong>, with support from
                         <strong>Université Paris-Saclay</strong> and <strong>I2BC</strong>.
                     </p>
@@ -133,7 +195,7 @@ def generate_home_section(lang="fr"):
                 <h2>Accueil</h2>
                 <div class="home-content">
                     <p style="margin-bottom: 20px;">
-                        La <strong>Junior Conference of Computational Biology (JC2B 2025)</strong> est un événement
+                        La <strong>Junior Conference on Computational Biology (JC2B 2025)</strong> est un événement
                         organisé par les étudiants du <strong>Master AMI2B d'Orsay</strong>, avec le soutien de
                         l'<strong>Université Paris-Saclay</strong> et de l'<strong>I2BC</strong>.
                     </p>
@@ -858,6 +920,7 @@ def generate_homepage(lang="en"):
 
     header = generate_header(lang)
     navbar = generate_navbar(lang)
+    countdown = generate_countdown_section(lang)
     home = generate_home_section(lang)
     program = generate_program_section(lang)
     call_for_contributions = generate_call_for_contributions(lang)
@@ -871,6 +934,7 @@ def generate_homepage(lang="en"):
     {header}
     {navbar}
     <main>
+        {countdown}
         {home}
         {program}
         {registration}
@@ -892,8 +956,8 @@ def generate_homepage(lang="en"):
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta name="description" content="Junior Conference of Computational Biology - Conference for young researchers in bioinformatics">
-            <title>JC2B 2025 - Junior Conference of Computational Biology</title>
+            <meta name="description" content="Junior Conference on Computational Biology - Conference for young researchers in bioinformatics">
+            <title>JC2B 2025 - Junior Conference on Computational Biology</title>
             <link rel="stylesheet" href="/assets/css/main.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
             <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
