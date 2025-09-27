@@ -721,7 +721,13 @@ section h2 {
 .footer-partner-logos img {
     height: 115px;
     border-radius: 4%;
+    transition: transform 0.3s ease;
 }
+
+.footer-partner-logos img:hover {
+    transform: scale(1.4); /* Agrandit de 5% */
+}
+
 .logo-blanc {
     height: 50px !important;
     filter: brightness(0) invert(1);
