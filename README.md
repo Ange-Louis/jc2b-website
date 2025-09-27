@@ -28,7 +28,7 @@ jc2b-website
 
 ## Installation
 1. Clonez le dépôt ou téléchargez les fichiers du projet.
-2. Ouvrez le fichier `index_fr.html` (pour le français) ou `index.html` (pour l'anglais) dans un navigateur web.
+2. Ouvrez le fichier `index_fr.html` (pour le français) ou `index.html` (pour l'anglais) dans un navigateur web à l'aide de Live Share (extension VS Code).
 
 ## Utilisation
 - Naviguez entre les sections via les liens intégrés (programme, intervenants, etc.).
@@ -46,7 +46,7 @@ Les contributions sont les bienvenues ! Pour proposer des modifications :
 | Branche                                  | Description                                                                 | Statut          | Comment contribuer ?                                                                 |
 |------------------------------------------|-----------------------------------------------------------------------------|-----------------|-------------------------------------------------------------------------------------|
 | `feature/ajout-countdown-ange-louis` | Ajoute un **compte à rebours dynamique** pour la JC2B (13/11/2025) sur la page d’accueil. | **En revue**    | Testez la branche et donnez votre avis sur l’ergonomie/le design |
-| `fix/ange-louis-logo` | Modification des **logos** en pied de page pour la JC2B (13/11/2025) sur la page d’accueil. | **En revue**    | Testez la branche et donnez votre avis sur l’ergonomie/le design des logos|
+| `fix/ange-louis-logo` | Modification des **logos** en pied de page pour la JC2B (13/11/2025) sur la page d’accueil. | **Approuvé & fusionné**    | Testez la branche et donnez votre avis sur l’ergonomie/le design des logos|
 
 #### **Comment tester cette feature ?**
 1. Basculez sur la branche :
