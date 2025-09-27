@@ -314,31 +314,6 @@ section h2 {
     margin: 1rem 0 1.5rem 2rem;
 }
 
-.partner-logos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-}
-
-.partner-logo {
-    text-align: center;
-    max-width: 200px;
-}
-
-.partner-logo img {
-    max-width: 100%;
-    height: auto;
-    filter: grayscale(0%);
-    transition: transform 0.3s;
-}
-
-.partner-logo img:hover {
-    transform: scale(1.05);
-}
-
 /* ======================   SECTION "PROGRAMME" (mis à jour)   ====================== */
 .program-unavailable {
     font-size: 0.9rem;
@@ -738,14 +713,20 @@ section h2 {
 
 .footer-partner-logos {
     display: flex;
+    align-items: center;
     gap: 1rem;
     margin: 1rem auto;
 }
 
 .footer-partner-logos img {
-    height: 100px;
+    height: 115px;
     border-radius: 4%;
 }
+.logo-blanc {
+    height: 50px !important;
+    filter: brightness(0) invert(1);
+}
+
 
 /* Responsive : empile les images sur mobile */
 @media (max-width: 768px) {
