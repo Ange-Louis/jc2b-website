@@ -1,19 +1,19 @@
-import os
-from datetime import datetime
+const fs = require('fs');
+const path = require('path');
 
-# ======================
-# 1. FONCTIONS DE GÉNÉRATION DES SECTIONS
-# ======================
+// ======================
+// 1. FUNCTIONS THAT RETURN HTML SNIPPETS
+// ======================
 
-def generate_language_switch(current_lang="en"):
-    """Bouton de changement de langue pour la navbar"""
-    if current_lang == "fr":
-        return '<a href="index.html" class="btn-lang" title="Switch to English">🇬🇧 English</a>'
-    else:
-        return '<a href="index_fr.html" class="btn-lang" title="Passer en français">🇫🇷 Français</a>'
+function generate_language_switch(current_lang = 'en') {
+  if (current_lang === 'fr') {
+    return '<a href="index.html" class="btn-lang" title="Switch to English">🇬🇧 English</a>';
+  }
+  return '<a href="index_fr.html" class="btn-lang" title="Passer en français">🇫🇷 Français</a>';
+}
 
-def generate_header(lang="en"):
-    return """
+function generate_header(lang = 'en') {
+  return `
     <header class="site-header">
         <!-- Bannière EN DEHORS du conteneur -->
         <div class="header-banner">
@@ -24,19 +24,21 @@ def generate_header(lang="en"):
             <!-- Autres éléments du header si besoin -->
         </div>
     </header>
-    """
+    `;
+}
 
-def generate_burger_menu():
-    return """
+function generate_burger_menu() {
+  return `
     <button class="burger-menu" id="burger-menu" aria-label="Open menu">
         <span></span>
     </button>
-    """
+    `;
+}
 
-def generate_mobile_nav(lang="en"):
-    lang_switch = generate_language_switch(lang)
-    if lang == "en":
-        return f"""
+function generate_mobile_nav(lang = 'en') {
+  const lang_switch = generate_language_switch(lang);
+  if (lang === 'en') {
+    return `
         <nav class="mobile-nav" id="mobile-nav">
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -47,11 +49,11 @@ def generate_mobile_nav(lang="en"):
                 <li><a href="#organization">Organization</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="lang-switch">{lang_switch}</div>
+            <div class="lang-switch">${lang_switch}</div>
         </nav>
-        """
-    else:
-        return f"""
+        `;
+  }
+  return `
         <nav class="mobile-nav" id="mobile-nav">
             <ul>
                 <li><a href="#home">Accueil</a></li>
@@ -62,46 +64,51 @@ def generate_mobile_nav(lang="en"):
                 <li><a href="#organization">Organisation</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="lang-switch">{lang_switch}</div>
+            <div class="lang-switch">${lang_switch}</div>
         </nav>
-        """
+        `;
+}
 
-def generate_navbar(lang="en"):
-    lang_switch = generate_language_switch(lang)
-    return f"""
+function generate_navbar(lang = 'en') {
+  const lang_switch = generate_language_switch(lang);
+  const enItems = [
+    '<li><a href="#home">Home</a></li>',
+    '<li><a href="#program">Program</a></li>',
+    '<li><a href="#registration">Registration</a></li>',
+    '<li><a href="#call-for-contributions">Call for Contributions</a></li>',
+    '<li><a href="#practical-info">Practical information</a></li>',
+    '<li><a href="#organization">Organization</a></li>',
+    '<li><a href="#contact">Contact</a></li>',
+  ].join('');
+  const frItems = [
+    '<li><a href="#home">Accueil</a></li>',
+    '<li><a href="#program">Programme</a></li>',
+    '<li><a href="#registration">Inscriptions</a></li>',
+    '<li><a href="#call-for-contributions">Appel à contributions</a></li>',
+    '<li><a href="#practical-info">Informations pratiques</a></li>',
+    '<li><a href="#organization">Organisation</a></li>',
+    '<li><a href="#contact">Contact</a></li>',
+  ].join('');
+
+  return `
     <div class="burger-nav-wrapper">
-        {generate_burger_menu()}
-        {generate_mobile_nav(lang)}
+        ${generate_burger_menu()}
+        ${generate_mobile_nav(lang)}
         <nav class="navbar">
             <div class="container navbar-flex">
                 <ul>
-                    {"".join([
-                        '<li><a href="#home">Home</a></li>',
-                        '<li><a href="#program">Program</a></li>',
-                        '<li><a href="#registration">Registration</a></li>',
-                        '<li><a href="#call-for-contributions">Call for Contributions</a></li>',
-                        '<li><a href="#practical-info">Practical information</a></li>',
-                        '<li><a href="#organization">Organization</a></li>',
-                        '<li><a href="#contact">Contact</a></li>',
-                    ]) if lang == "en" else "".join([
-                        '<li><a href="#home">Accueil</a></li>',
-                        '<li><a href="#program">Programme</a></li>',
-                        '<li><a href="#registration">Inscriptions</a></li>',
-                        '<li><a href="#call-for-contributions">Appel à contributions</a></li>',
-                        '<li><a href="#practical-info">Informations pratiques</a></li>',
-                        '<li><a href="#organization">Organisation</a></li>',
-                        '<li><a href="#contact">Contact</a></li>',
-                    ])}
+                    ${lang === 'en' ? enItems : frItems}
                 </ul>
-                <div class="lang-switch">{lang_switch}</div>
+                <div class="lang-switch">${lang_switch}</div>
             </div>
         </nav>
     </div>
-    """
+    `;
+}
 
-def generate_home_section(lang="fr"):
-    if lang == "en":
-        return """
+function generate_home_section(lang = 'fr') {
+  if (lang === 'en') {
+    return `
         <section id="home" class="home">
             <div class="container">
                 <h2>Home</h2>
@@ -125,9 +132,9 @@ def generate_home_section(lang="fr"):
                 </div>
             </div>
         </section>
-        """
-    else:
-        return """
+        `;
+  }
+  return `
         <section id="home" class="home">
             <div class="container">
                 <h2>Accueil</h2>
@@ -151,28 +158,28 @@ def generate_home_section(lang="fr"):
                 </div>
             </div>
         </section>
-        """
+        `;
+}
 
-def generate_program_section(lang="fr"):
-    program_unavailable = f"""
+function generate_program_section(lang = 'fr') {
+  const program_unavailable = `
     <div class="program-unavailable">
         <div class="program-unavailable-header">
             <i class="fas fa-info-circle"></i>
-            <h3>{"Programme en cours de finalisation" if lang == "fr" else "Program Under Finalization"}</h3>
+            <h3>${lang === 'fr' ? "Programme en cours de finalisation" : "Program Under Finalization"}</h3>
         </div>
         <p class="program-unavailable-message">
-            {"Le programme est susceptible d'être modifié. Revenez régulièrement pour les mises à jour."
-            if lang == "fr" else "The program is subject to change. Check back regularly for updates."}
+            ${lang === 'fr' ? "Le programme est susceptible d'être modifié. Revenez régulièrement pour les mises à jour." : "The program is subject to change. Check back regularly for updates."}
         </p>
     </div>
-    """
-     
-    if lang == "en":
-        return f"""
+    `;
+
+  if (lang === 'en') {
+    return `
         <section id="program" class="program">
             <div class="container">
                 <h2>Programme</h2>
-                {program_unavailable}
+                ${program_unavailable}
                 <div>
                     <div class="program-session">
                         <p>
@@ -240,14 +247,14 @@ def generate_program_section(lang="fr"):
                 </div>
             </div>
         </section>
-        """
+        `;
+  }
 
-    else:
-        return f"""
+  return `
         <section id="program" class="program">
             <div class="container">
                 <h2>Programme</h2>
-                {program_unavailable}
+                ${program_unavailable}
                 <div>
                     <div class="program-session">
                         <p>
@@ -315,11 +322,12 @@ def generate_program_section(lang="fr"):
                 </div>
             </div>
         </section>
-        """
+        `;
+}
 
-def generate_call_for_contributions(lang="fr"):
-    if lang == "en":
-        return """
+function generate_call_for_contributions(lang = 'fr') {
+  if (lang === 'en') {
+    return `
         <section id="call-for-contributions" class="call-for-contributions">
             <div class="container">
                 <h2>Call for Contributions</h2>
@@ -360,9 +368,9 @@ def generate_call_for_contributions(lang="fr"):
                 </div>
             </div>
         </section>
-        """
-    else:
-        return """
+        `;
+  }
+  return `
         <section id="call-for-contributions" class="call-for-contributions">
             <div class="container">
                 <h2>Appel à contributions</h2>
@@ -403,11 +411,12 @@ def generate_call_for_contributions(lang="fr"):
                 </div>
             </div>
         </section>
-        """
+        `;
+}
 
-def generate_registration_section(lang="fr"):
-    if lang == "en":
-        return """
+function generate_registration_section(lang = 'fr') {
+  if (lang === 'en') {
+    return `
         <section id="registration" class="registration">
             <div class="container">
                 <h2>Registration</h2>
@@ -457,9 +466,9 @@ def generate_registration_section(lang="fr"):
                 </div>
             </div>
         </section>
-        """
-    else:
-        return """
+        `;
+  }
+  return `
         <section id="registration" class="registration">
             <div class="container">
                 <h2>Inscriptions</h2>
@@ -510,11 +519,12 @@ def generate_registration_section(lang="fr"):
                 </div>
             </div>
         </section>
-        """
-    
-def generate_practical_info_section(lang="fr"):
-    if lang == "en":
-        return """
+        `;
+}
+
+function generate_practical_info_section(lang = 'fr') {
+  if (lang === 'en') {
+    return `
         <section id="practical-info" class="practical-info">
             <div class="container">
                 <h2>Practical information</h2>
@@ -543,9 +553,9 @@ def generate_practical_info_section(lang="fr"):
                 </div>
             </div>
         </section>
-        """
-    else:
-        return """
+        `;
+  }
+  return `
         <section id="practical-info" class="practical-info">
             <div class="container">
                 <h2>Informations pratiques</h2>
@@ -574,11 +584,12 @@ def generate_practical_info_section(lang="fr"):
                 </div>
             </div>
         </section>
-        """
+        `;
+}
 
-def generate_organization_section(lang="fr"):
-    if lang == "en":
-        return """
+function generate_organization_section(lang = 'fr') {
+  if (lang === 'en') {
+    return `
         <section id="organization" class="organization">
             <div class="container">
                 <h2>Organizing Committee</h2>
@@ -593,9 +604,9 @@ def generate_organization_section(lang="fr"):
                 </div>
             </div>
         </section>
-        """
-    else:
-        return """
+        `;
+  }
+  return `
         <section id="organization" class="organization">
             <div class="container">
                 <h2>Comité d'organisation</h2>
@@ -610,11 +621,12 @@ def generate_organization_section(lang="fr"):
                 </div>
             </div>
         </section>
-        """
+        `;
+}
 
-def generate_contact_section(lang="fr"):
-    if lang == "en":
-        return """
+function generate_contact_section(lang = 'fr') {
+  if (lang === 'en') {
+    return `
         <section id="contact" class="contact">
             <div class="container">
                 <h2>Contact</h2>
@@ -639,9 +651,9 @@ def generate_contact_section(lang="fr"):
                 </div>
             </div>
         </section>
-        """
-    else:
-        return """
+        `;
+  }
+  return `
         <section id="contact" class="contact">
             <div class="container">
                 <h2>Contact</h2>
@@ -666,17 +678,18 @@ def generate_contact_section(lang="fr"):
                 </div>
             </div>
         </section>
-        """
+        `;
+}
 
-def generate_footer(lang="fr"):
-    current_year = datetime.now().year
-    if lang == "en":
-        return f"""
+function generate_footer(lang = 'fr') {
+  const current_year = new Date().getFullYear();
+  if (lang === 'en') {
+    return `
         <footer class="site-footer">
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-section">
-                        <h3>JC2B {current_year}</h3>
+                        <h3>JC2B ${current_year}</h3>
                         <p>
                             November 13, 2025<br>
                             I2BC - Building 21<br>
@@ -706,7 +719,7 @@ def generate_footer(lang="fr"):
                 </div>
                 <div class="footer-legal">
                     <p>
-                        &copy; {current_year} JC2B - All rights reserved.
+                        &copy; ${current_year} JC2B - All rights reserved.
                         Site developed by students of the AMI2B Master's program.
                     </p>
                     <ul class="footer-links">
@@ -716,14 +729,14 @@ def generate_footer(lang="fr"):
                 </div>
             </div>
         </footer>
-        """
-    else:
-        return f"""
+        `;
+  }
+  return `
         <footer class="site-footer">
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-section">
-                        <h3>JC2B {current_year}</h3>
+                        <h3>JC2B ${current_year}</h3>
                         <p>
                             13 novembre 2025<br>
                             I2BC - Bâtiment 21<br>
@@ -753,7 +766,7 @@ def generate_footer(lang="fr"):
                 </div>
                 <div class="footer-legal">
                     <p>
-                        &copy; {current_year} JC2B - Tous droits réservés.
+                        &copy; ${current_year} JC2B - Tous droits réservés.
                         Site développé par les étudiants du Master AMI2B.
                     </p>
                     <ul class="footer-links">
@@ -763,10 +776,11 @@ def generate_footer(lang="fr"):
                 </div>
             </div>
         </footer>
-        """
+        `;
+}
 
-def generate_scrollspy_script():
-    return """
+function generate_scrollspy_script() {
+  return `
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         const sections = document.querySelectorAll("main section[id]");
@@ -791,10 +805,11 @@ def generate_scrollspy_script():
         onScroll();
     });
     </script>
-    """
+    `;
+}
 
-def generate_scroll_to_top_button():
-    return """
+function generate_scroll_to_top_button() {
+  return `
     <button id="scroll-to-top" aria-label="Scroll to top" title="Remonter en haut">
         <i class="fas fa-arrow-up"></i>
     </button>
@@ -813,10 +828,11 @@ def generate_scroll_to_top_button():
         });
     });
     </script>
-    """
+    `;
+}
 
-def generate_burger_script():
-    return """
+function generate_burger_script() {
+  return `
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         const burger = document.getElementById("burger-menu");
@@ -845,50 +861,48 @@ def generate_burger_script():
         });
     });
     </script>
-    """
+    `;
+}
 
-# ======================
-# 2. GÉNÉRATION DE LA PAGE D'ACCUEIL
-# ======================
+// ======================
+// 2. PAGE ASSEMBLY AND WRITE
+// ======================
 
-def generate_homepage(lang="en"):
-    """Génère la page d'accueil complète pour la langue donnée"""
-    output_path = "../pages/index.html" if lang == "en" else "../pages/index_fr.html"
-    os.makedirs("../pages", exist_ok=True)
+function generate_homepage(lang = 'en') {
+  const outputPath = path.join(__dirname, '..', 'pages', lang === 'en' ? 'index.html' : 'index_fr.html');
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 
-    header = generate_header(lang)
-    navbar = generate_navbar(lang)
-    home = generate_home_section(lang)
-    program = generate_program_section(lang)
-    call_for_contributions = generate_call_for_contributions(lang)
-    registration = generate_registration_section(lang)
-    practical_info = generate_practical_info_section(lang)
-    organization = generate_organization_section(lang)
-    contact = generate_contact_section(lang)
-    footer = generate_footer(lang)
+  const header = generate_header(lang);
+  const navbar = generate_navbar(lang);
+  const home = generate_home_section(lang);
+  const program = generate_program_section(lang);
+  const call_for_contributions = generate_call_for_contributions(lang);
+  const registration = generate_registration_section(lang);
+  const practical_info = generate_practical_info_section(lang);
+  const organization = generate_organization_section(lang);
+  const contact = generate_contact_section(lang);
+  const footer = generate_footer(lang);
 
-    content = f"""
-    {header}
-    {navbar}
+  const content = `
+    ${header}
+    ${navbar}
     <main>
-        {home}
-        {program}
-        {registration}
-        {call_for_contributions}
-        {practical_info}
-        {organization}
-        {contact}
+        ${home}
+        ${program}
+        ${registration}
+        ${call_for_contributions}
+        ${practical_info}
+        ${organization}
+        ${contact}
     </main>
-    {footer}
-    {generate_scroll_to_top_button()}
-    {generate_scrollspy_script()}
-    {generate_burger_script()}
-    """
+    ${footer}
+    ${generate_scroll_to_top_button()}
+    ${generate_scrollspy_script()}
+    ${generate_burger_script()}
+    `;
 
-    with open(output_path, "w", encoding="utf-8") as f:
-        f.write(f"""
-        <!DOCTYPE html>
-        <html lang="{lang}">
+  const html = `<!DOCTYPE html>
+        <html lang="${lang}">
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -899,17 +913,19 @@ def generate_homepage(lang="en"):
             <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
         </head>
         <body>
-        {content}
+        ${content}
         </body>
-        </html>
-        """)
+        </html>`;
 
-    print(f"✅ Page d'accueil générée avec succès : {output_path}")
+  fs.writeFileSync(outputPath, html, { encoding: 'utf8' });
+  console.log(`✅ Page generated: ${outputPath}`);
+}
 
-# ======================
-# 3. POINT D'ENTRÉE
-# ======================
+// ======================
+// 3. ENTRYPOINT
+// ======================
 
-if __name__ == "__main__":
-    generate_homepage("en")
-    generate_homepage("fr")
+if (require.main === module) {
+  generate_homepage('en');
+  generate_homepage('fr');
+}
