@@ -46,6 +46,8 @@ Les contributions sont les bienvenues ! Pour proposer des modifications :
 | Branche                                  | Description                                                                 | Statut          | Comment contribuer ?                                                                 |
 |------------------------------------------|-----------------------------------------------------------------------------|-----------------|-------------------------------------------------------------------------------------|
 | `feature/ajout-countdown-ange-louis` | Ajoute un **compte à rebours dynamique** pour la JC2B (13/11/2025) sur la page d’accueil. | **En revue**    | Testez la branche et donnez votre avis sur l’ergonomie/le design |
+|------------------------------------------|-----------------------------------------------------------------------------|-----------------|-------------------------------------------------------------------------------------|
+| `fix/ange-louis-logo` | Modification des **logos** en pied de page pour la JC2B (13/11/2025) sur la page d’accueil. | **En revue**    | Testez la branche et donnez votre avis sur l’ergonomie/le design des logos|
 
 #### **Comment tester cette feature ?**
 1. Basculez sur la branche :
