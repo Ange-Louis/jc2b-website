@@ -39,5 +39,18 @@ Les contributions sont les bienvenues ! Pour proposer des modifications :
 2. Créez une branche dédiée (`git checkout -b feature/nom-prenom-ma-nouvelle-fonctionnalité`).
 3. Soumettez une Pull Request.
 
+---
+### 🔧 Branches en cours de développement
+
+| Branche                                  | Description                                                                 | Statut          | Comment contribuer ?                                                                 |
+|------------------------------------------|-----------------------------------------------------------------------------|-----------------|-------------------------------------------------------------------------------------|
+| `feature/ange-louis-countdown-conference` | Ajoute un **compte à rebours dynamique** pour la JC2B (13/11/2025) sur la page d’accueil. | **En revue**    | Testez la branche et donnez votre avis sur l’ergonomie/le design |
+
+#### **Comment tester cette feature ?**
+1. Basculez sur la branche :
+   ```bash
+   git checkout feature/ajout-countdown-ange-louis
+
+
 ## License
 Ce projet est sous licence MIT.
