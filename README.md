@@ -1,5 +1,5 @@
-![Bannière JC2B](assets/images/jc2b_banniere.png)
 # Site Web JC2B
+![Bannière JC2B](assets/images/jc2b_banniere.png)
 ## Description
 Ce projet est le site officiel de la **Junior Conference of Computational Biology (JC2B)**, un événement organisé par et pour les étudiants, doctorants et chercheurs en bioinformatique. Le site propose des informations sur la conférence (programme, intervenants, partenaires), des pages légales, et une section dédiée aux mentions légales.
 
