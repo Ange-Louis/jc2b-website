@@ -723,8 +723,8 @@ function generate_footer(lang = 'fr') {
                         Site developed by students of the AMI2B Master's program.
                     </p>
                     <ul class="footer-links">
-                        <li><a href="/legal-notice">Legal Notice</a></li>
-                        <li><a href="/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="/legal-notice.html">Legal Notice</a></li>
+                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
