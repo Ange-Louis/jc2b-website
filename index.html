@@ -1,5 +1,4 @@
-
-        <!DOCTYPE html>
+<!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
@@ -37,6 +36,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#practical-info">Practical Information</a></li>
                 <li><a href="#program">Program</a></li>
+                <li><a href="#book-of-abstracts">Book of Abstracts</a></li>
                 <li><a href="#call-for-contributions">Call for Contributions</a></li>
                 <li><a href="#registration">Registration</a></li>
                 <li><a href="#organization">Organization</a></li>
@@ -48,7 +48,7 @@
         <nav class="navbar">
             <div class="container navbar-flex">
                 <ul>
-                    <li><a href="#home">Home</a></li><li><a href="#program">Program</a></li><li><a href="#registration">Registration</a></li><li><a href="#call-for-contributions">Call for Contributions</a></li><li><a href="#practical-info">Practical Information</a></li><li><a href="#organization">Organization</a></li><li><a href="#contact">Contact</a></li>
+                    <li><a href="#home">Home</a></li><li><a href="#program">Program</a></li><li><a href="#book-of-abstracts">Book of Abstracts</a></li><li><a href="#registration">Registration</a></li><li><a href="#call-for-contributions">Call for Contributions</a></li><li><a href="#practical-info">Practical Information</a></li><li><a href="#organization">Organization</a></li><li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="lang-switch"><a href="index_fr.html" class="btn-lang" title="Switch to French">🇫🇷 Français</a></div>
             </div>
@@ -163,6 +163,22 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+        </section>
+        
+        
+        <section id="book-of-abstracts" class="book-of-abstracts">
+            <div class="container">
+                <h2>Book of Abstracts</h2>
+                <p>
+                    You can browse the book of abstracts below or download it.
+                </p>
+                <div class="pdf-viewer" style="margin-bottom: 20px;">
+                    <iframe src="JC2B-BookOfAbstracts.pdf" width="100%" height="800px" style="border: 1px solid #ccc;"></iframe>
+                </div>
+                <a href="JC2B-BookOfAbstracts.pdf" class="btn-lang" download>
+                    <i class="fas fa-download"></i> Download the Book of Abstracts
+                </a>
             </div>
         </section>
         
@@ -338,6 +354,7 @@
                         <ul>
                             <li><a href="#home">Home</a></li>
                             <li><a href="#program">Program</a></li>
+                            <li><a href="#book-of-abstracts">Book of Abstracts</a></li>
                             <li><a href="#registration">Registration</a></li>
                             <li><a href="#call-for-contributions">Call for Contributions</a></li>
                             <li><a href="#practical-info">Practical Information</a></li>
@@ -397,7 +414,7 @@
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         const sections = document.querySelectorAll("main section[id]");
-        const navLinks = document.querySelectorAll(".navbar a[href^='#']");
+        const navLinks = document.querySelectorAll(".navbar a[href^='#'], .mobile-nav a[href^='#']");
         function onScroll() {
             let scrollPos = window.scrollY || window.pageYOffset;
             let offset = 120; // Décalage pour la navbar
@@ -452,4 +469,3 @@
     
         </body>
         </html>
-        
